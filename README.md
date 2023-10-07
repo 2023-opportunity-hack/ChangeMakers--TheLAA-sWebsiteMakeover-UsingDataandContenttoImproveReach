@@ -5,7 +5,7 @@ https://hack.ohack.dev
 ChangeMakers
 
 ## Slack Channel
-`#`[NPOhack](https://opportunity-hack.slack.com/app_redirect?channel=NPOhack)
+https://app.slack.com/huddle/T1Q7936BH/C06006F9J6A
 
 ## Problem Statement
 [The LAA’s Website Makeover: Using Data and Content to Improve Reach](https://ohack.dev/project/cEE7yQZKUYUrDj0iyIP3)
