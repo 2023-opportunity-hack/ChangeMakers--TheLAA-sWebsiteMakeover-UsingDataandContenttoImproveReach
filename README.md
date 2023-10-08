@@ -14,7 +14,7 @@ Many features on the LAA's website were largely outdated, making it difficult fo
 ## What We Did
 Our team created:
 
-- A fresh and de-cluttered front-end layout for their new website using Canva by condensing their information on single pages, rather than maintianing their previously distanced and repetative form. This allows the NPO to present their services and information with clarity.
+- A fresh and de-cluttered front-end layout for their new website using Canva by condensing their information on single pages, rather than maintianing their previously distanced and repetative form. This allows the NPO to present their services and information on mobile devices with clarity.
 - An option for a single website that can convert from English to Spanish, rather than two separate websites. This allows for simpler maitinance for both the user and NPO.
 - A Google Analytics 4 account that could be translated onto their new website. This would make understanding the website's use and retargeting their past donors much easier.  
 
@@ -25,4 +25,4 @@ The NPO was unable to provide us with useable or organized files, may of which b
 Google Analytics 4 is a robust platform that can provide a one-glance view of how one's website is being used. With its customizability, the user is able to tailor its specific data collection for their needs. We also learned that with a compatible platform and plugins, this service can be integrated into any type of website. 
 
 ## Continuing The LAA Website Makeover 
-In the future, the LAA's website would need to be hosted on a modern WordPress platform with an integrated, costomized Google Analytics 4 account. This would require the implementation of modern plugins that would support this service. The Google Analytics 4 account could be costomized by the administrator to track whichever services or pages they would like data on. Similarly, based on this data, the NPO would be able to costomize the users that recieve advertisements that encourage more interaction with their site and organization. 
+In the future, the LAA's website would need to be hosted on a modern WordPress platform with an integrated, costomized Google Analytics 4 account. This would require the implementation of modern plugins that would support this service. The Google Analytics 4 account could be costomized by the administrator to track whichever services or pages they would like data on. Similarly, based on this data, the NPO would be able to target certain users to recieve advertisements that encourage more interaction with their site and organization. 
