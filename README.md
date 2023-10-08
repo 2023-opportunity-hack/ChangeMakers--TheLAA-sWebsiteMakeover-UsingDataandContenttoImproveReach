@@ -21,6 +21,8 @@ Our team created:
 ## Challenges We Faced
 The NPO was unable to provide us with useable or organized files, may of which being empty or erroneous. Along with this, the drive given containing their back-end information and plug-ins could not be completely downloaded and the PHP and WordPress used were outdated. This in turn led to major compatibility issues and made it incredibly difficult to edit and remaster their back-end.
 
+## What We Learned
+Google Analytics 4 is a robust platform that can provide a one-glance view of how one's website is being used. With its customizability, the user is able to tailor its specific data collection for their needs. We also learned that with a compatible platform and plugins, this service can be integrated into any type of website. 
+
 ## Continuing The LAA Website Makeover 
 In the future, the LAA's website would need to be hosted on a modern WordPress platform with an integrated, costomized Google Analytics 4 account. This would require the implementation of modern plugins that would support this service. The Google Analytics 4 account could be costomized by the administrator to track whichever services or pages they would like data on. Similarly, based on this data, the NPO would be able to costomize the users that recieve advertisements that encourage more interaction with their site and organization. 
-
