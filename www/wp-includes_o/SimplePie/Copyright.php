@@ -1,4 +1,3 @@
-<?php
 /**
  * SimplePie
  *
@@ -41,7 +40,6 @@
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
  */
-
 /**
  * Manages `<media:copyright>` copyright tags as defined in Media RSS
  *
@@ -52,79 +50,73 @@
  * @package SimplePie
  * @subpackage API
  */
-class SimplePie_Copyright
-{
-	/**
-	 * Copyright URL
-	 *
-	 * @var string
-	 * @see get_url()
-	 */
-	var $url;
-
-	/**
-	 * Attribution
-	 *
-	 * @var string
-	 * @see get_attribution()
-	 */
-	var $label;
-
-	/**
-	 * Constructor, used to input the data
-	 *
-	 * For documentation on all the parameters, see the corresponding
-	 * properties and their accessors
-	 */
-	public function __construct($url = null, $label = null)
-	{
-		$this->url = $url;
-		$this->label = $label;
-	}
-
-	/**
-	 * String-ified version
-	 *
-	 * @return string
-	 */
-	public function __toString()
-	{
-		// There is no $this->data here
-		return md5(serialize($this));
-	}
-
-	/**
-	 * Get the copyright URL
-	 *
-	 * @return string|null URL to copyright information
-	 */
-	public function get_url()
-	{
-		if ($this->url !== null)
-		{
-			return $this->url;
-		}
-		else
-		{
-			return null;
-		}
-	}
-
-	/**
-	 * Get the attribution text
-	 *
-	 * @return string|null
-	 */
-	public function get_attribution()
-	{
-		if ($this->label !== null)
-		{
-			return $this->label;
-		}
-		else
-		{
-			return null;
-		}
-	}
-}
-
+var SimplePie_Copyright = (function() {
+    function SimplePie_Copyright(url, label) {
+        var __isInheritance = __IS_INHERITANCE__;
+        window.__IS_INHERITANCE__ = false;
+        /**
+         * Copyright URL
+         *
+         * @type {string}
+         * @see get_url()
+         */
+        this.url = null;
+        /**
+         * Attribution
+         *
+         * @type {string}
+         * @see get_attribution()
+         */
+        this.label = null;
+        if (__isInheritance == false) {
+            this.__construct(url, label);
+        }
+    }
+    /**
+     * Constructor, used to input the data
+     *
+     * For documentation on all the parameters, see the corresponding
+     * properties and their accessors
+     */
+    SimplePie_Copyright.prototype.__construct = function(url, label) {
+        if (typeof url == 'undefined') url = null;
+        if (typeof label == 'undefined') label = null;
+        this.url = url;
+        this.label = label;
+    };
+    /**
+     * String-ified version
+     *
+     * @return string
+     */
+    SimplePie_Copyright.prototype.__toString = function() {
+        // There is no $this->data here
+        return md5(serialize(this));
+    };
+    /**
+     * Get the copyright URL
+     *
+     * @return string|null URL to copyright information
+     */
+    SimplePie_Copyright.prototype.get_url = function() {
+        if (this.url !== null) {
+            return this.url;
+        } else {
+            return null;
+        }
+    };
+    /**
+     * Get the attribution text
+     *
+     * @return string|null
+     */
+    SimplePie_Copyright.prototype.get_attribution = function() {
+        if (this.label !== null) {
+            return this.label;
+        } else {
+            return null;
+        }
+    };
+    SimplePie_Copyright.class = 'SimplePie_Copyright';
+    return SimplePie_Copyright;
+})();
