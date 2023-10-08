@@ -1,5 +1,4 @@
-<?php
-
+//not implemented phptojs\JsPrinter\JsPrinter::pStmt_Nop
 /**
  * HyperDB configuration file
  *
@@ -9,7 +8,6 @@
  *
  * See readme.txt for documentation.
  */
-
 /**
  * Introduction to HyperDB configuration
  *
@@ -28,26 +26,22 @@
  * Defining a dataset involves specifying its exact table names or registering
  * one or more callback functions that translate table names to datasets.
  */
-
-
 /** Variable settings **/
-
 /**
  * save_queries (bool)
  * This is useful for debugging. Queries are saved in $wpdb->queries. It is not
  * a constant because you might want to use it momentarily.
  * Default: false
  */
-$wpdb->save_queries = false;
-
+var wpdb;
+wpdb.save_queries = false;
 /**
  * persistent (bool)
  * This determines whether to use mysql_connect or mysql_pconnect. The effects
  * of this setting may vary and should be carefully tested.
  * Default: false
  */
-$wpdb->persistent = true;
-
+wpdb.persistent = true;
 /**
  * max_connections (int)
  * This is the number of mysql connections to keep open. Increase if you expect
@@ -55,8 +49,7 @@ $wpdb->persistent = true;
  * enable persistent connections.
  * Default: 10
  */
-$wpdb->max_connections = 10;
-
+wpdb.max_connections = 10;
 /**
  * check_tcp_responsiveness
  * Enables checking TCP responsiveness by fsockopen prior to mysql_connect or
@@ -65,10 +58,8 @@ $wpdb->max_connections = 10;
  * a very tiny margin but lose protection against connections failing slowly.
  * Default: true
  */
-$wpdb->check_tcp_responsiveness = false;
-
+wpdb.check_tcp_responsiveness = false;
 /** Configuration Functions **/
-
 /**
  * $wpdb->add_database( $database );
  *
@@ -84,13 +75,11 @@ $wpdb->check_tcp_responsiveness = false;
  * dataset  (optional) Name of dataset. Default is 'global'.
  * timeout  (optional) Seconds to wait for TCP responsiveness. Default is 0.2
  */
-
 /**
  * $wpdb->add_table( $dataset, $table );
  *
  * $dataset and $table are strings.
  */
-
 /**
  * $wpdb->add_callback( $callback );
  *
@@ -111,8 +100,6 @@ $wpdb->check_tcp_responsiveness = false;
  * to connection. This allows you to dynamically vary parameters such as the
  * host, user, password, database name, and TCP check timeout.
  */
-
-
 /** Masters and slaves
  *
  * A database definition can include 'read' and 'write' parameters. These
@@ -135,8 +122,6 @@ $wpdb->check_tcp_responsiveness = false;
  * queries to the same server that received the write query. Thus a master set
  * up this way will still receive read queries, but only subsequent to writes.
  */
-
-
 /**
  * Network topology / Datacenter awareness
  *
@@ -171,44 +156,38 @@ $wpdb->check_tcp_responsiveness = false;
  * php_uname(), and compute the read/write parameters accordingly. An example
  * appears later in this file using the legacy function add_db_server().
  */
-
-
 /** Sample Configuration 1: Using the Default Server **/
 /** NOTE: THIS IS ACTIVE BY DEFAULT. COMMENT IT OUT. **/
-
 /**
  * This is the most basic way to add a server to HyperDB using only the
  * required parameters: host, user, password, name.
  * This adds the DB defined in wp-config.php as a read/write server for
  * the 'global' dataset. (Every table is in 'global' by default.)
  */
-$wpdb->add_database(array(
-	'host'     => DB_HOST,     // If port is other than 3306, use host:port.
-	'user'     => DB_USER,
-	'password' => DB_PASSWORD,
-	'name'     => DB_NAME,
-	'write'    => 1,
-	'read'     => 2,
-	'dataset'  => 'global',
-));
-
+wpdb.add_database({
+    "host": DB_HOST,
+    "user": DB_USER,
+    "password": DB_PASSWORD,
+    "name": DB_NAME,
+    "write": 1,
+    "read": 2,
+    "dataset": "global"
+});
 /**
  * This adds the same server again, only this time it is configured as a slave.
  * The last three parameters are set to the defaults but are shown for clarity.
  */
-$wpdb->add_database(array(
-	'host'     => DB_HOST_SLAVE,     // If port is other than 3306, use host:port.
-	'user'     => DB_USER,
-	'password' => DB_PASSWORD,
-	'name'     => DB_NAME,
-	'write'    => 0,
-	'read'     => 1,
-	'dataset'  => 'global',
-	'timeout'  => 0.2,
-));
-
+wpdb.add_database({
+    "host": DB_HOST_SLAVE,
+    "user": DB_USER,
+    "password": DB_PASSWORD,
+    "name": DB_NAME,
+    "write": 0,
+    "read": 1,
+    "dataset": "global",
+    "timeout": 0.2
+});
 /** Sample Configuration 2: Partitioning **/
-
 /**
  * This example shows a setup where the multisite blog tables have been
  * separated from the global dataset.
@@ -230,34 +209,30 @@ $wpdb->add_database(array(
 $wpdb->add_callback('my_db_callback');
 function my_db_callback($query, $wpdb) {
 	// Multisite blog tables are "{$base_prefix}{$blog_id}_*"
-	if ( preg_match("/^{$wpdb->base_prefix}\d+_/i", $wpdb->table) )
+	if ( preg_match("/^{$wpdb->base_prefix}.d+_/i", $wpdb->table) )
 		return 'blog';
 }
 */
-
-
 /** Sample helper functions from WordPress.com **/
-
 /**
  * This is back-compatible with an older config style. It is for convenience.
  * lhost, part, and dc were removed from hyperdb because the read and write
  * parameters provide enough power to achieve the desired effects via config.
  *
- * @param string $dataset Datset: the name of the dataset. Just use "global" if you don't need horizontal partitioning.
- * @param int $part Partition: the vertical partition number (1, 2, 3, etc.). Use "0" if you don't need vertical partitioning.
- * @param string $dc Datacenter: where the database server is located. Airport codes are convenient. Use whatever.
- * @param int $read Read group: tries all servers in lowest number group before trying higher number group. Typical: 1 for slaves, 2 for master. This will cause reads to go to slaves unless all slaves are unreachable. Zero for no reads.
- * @param bool $write Write flag: is this server writable? Works the same as $read. Typical: 1 for master, 0 for slaves.
- * @param string $host Internet address: host:port of server on internet. 
- * @param string $lhost Local address: host:port of server for use when in same datacenter. Leave empty if no local address exists.
- * @param string $name Database name.
- * @param string $user Database user.
- * @param string $password Database password.
+ * @param {string} dataset Datset: the name of the dataset. Just use "global" if you don't need horizontal partitioning.
+ * @param {int} part Partition: the vertical partition number (1, 2, 3, etc.). Use "0" if you don't need vertical partitioning.
+ * @param {string} dc Datacenter: where the database server is located. Airport codes are convenient. Use whatever.
+ * @param {int} read Read group: tries all servers in lowest number group before trying higher number group. Typical: 1 for slaves, 2 for master. This will cause reads to go to slaves unless all slaves are unreachable. Zero for no reads.
+ * @param {bool} write Write flag: is this server writable? Works the same as $read. Typical: 1 for master, 0 for slaves.
+ * @param {string} host Internet address: host:port of server on internet. 
+ * @param {string} lhost Local address: host:port of server for use when in same datacenter. Leave empty if no local address exists.
+ * @param {string} name Database name.
+ * @param {string} user Database user.
+ * @param {string} password Database password.
  */
 /*
 function add_db_server($dataset, $part, $dc, $read, $write, $host, $lhost, $name, $user, $password, $timeout = 0.2 ) {
 	global $wpdb;
-
 	// dc is not used in hyperdb. This produces the desired effect of
 	// trying to connect to local servers before remote servers. Also
 	// increases time allowed for TCP responsiveness check.
@@ -266,16 +241,12 @@ function add_db_server($dataset, $part, $dc, $read, $write, $host, $lhost, $name
 		$write += 10000;
 		$timeout = 0.7;
 	}
-
 	// You'll need a hyperdb::add_callback() callback function to use partitioning.
 	// $wpdb->add_callback( 'my_func' );
 	if ( $part )
 		$dataset = $dataset . '_' . $part;
-
 	$database = compact('dataset', 'read', 'write', 'host', 'name', 'user', 'password', 'timeout');
-
 	$wpdb->add_database($database);
-
 	// lhost is not used in hyperdb. This configures hyperdb with an
 	// additional server to represent the local hostname so it tries to
 	// connect over the private interface before the public one.
@@ -288,5 +259,4 @@ function add_db_server($dataset, $part, $dc, $read, $write, $host, $lhost, $name
 	}
 }
 */
-
 // The ending PHP tag is omitted. This is actually safer than including it.
