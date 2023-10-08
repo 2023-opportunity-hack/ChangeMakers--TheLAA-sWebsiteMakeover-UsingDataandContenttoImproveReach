@@ -1,31 +1,26 @@
+# ChangeMakers for The LAA
+## About the LAA 
+This nonprofit organization aims to support new and current Latin American families in Georgia through various services like:
 
-# 2023_fall Hackathon
-https://hack.ohack.dev
-## Team
-ChangeMakers
-
-## Slack Channel
-https://app.slack.com/client/T1Q7936BH/C06006F9J6A
+- Job searches
+- Immigration security
+- Adult education
+- Translation
+- Facility rentals
 
 ## Problem Statement
-[The LAA’s Website Makeover: Using Data and Content to Improve Reach](https://ohack.dev/project/cEE7yQZKUYUrDj0iyIP3)
+Many features on the LAA's website were largely outdated, making it difficult for its users to navigate and thus inhibiting the organization's ability to help those in need. The NPO was in need of a more efficient layout for their website that could be conveniently used with mobile devices. They also lacked a method for an efficient transition from English to Spanish on their website, leading to two separate websites instead of one. Along with this, the NPO was unable to retarget their past contributors or understand what types of people were requiring which services. This problem made it difficult for the organization to maintain their necessary support.  
 
-## Creator
-@Natalie Kujalowicz (on Slack)
+## What We Did
+Our team created:
 
-## Your next steps
-1. ✅ Add everyone to your GitHub repo like this: https://opportunity-hack.slack.com/archives/C1Q6YHXQU/p1605657678139600
-2. ✅ Create your DevPost project like this https://youtu.be/vCa7QFFthfU?si=bzMQ91d8j3ZkOD03
-3. ✅ ASU Students use https://opportunity-hack-2023-asu.devpost.com/
-4. ✅ Everyone else use https://opportunity-hack-2023-virtual.devpost.com/
-5. ✅ Your DevPost final submission demo video should be 3 minutes or less
-6. ✅ Review the judging criteria on DevPost
+- A fresh and de-cluttered front-end layout for their new website using Canva by condensing their information on single pages, rather than maintianing their previously distanced and repetative form. This allows the NPO to present their services and information with clarity.
+- An option for a single website that can convert from English to Spanish, rather than two separate websites. This allows for simpler maitinance for both the user and NPO.
+- A Google Analytics 4 account that could be translated onto their new website. This would make understanding the website's use and retargeting their past donors much easier.  
 
-# What should your final Readme look like?
-Examples of stellar readmes:
-- ✨ [2019 Team 3](https://github.com/2019-Arizona-Opportunity-Hack/Team-3)
-- ✨ [2019 Team 6](https://github.com/2019-Arizona-Opportunity-Hack/Team-6)
-- ✨ [2020 Team 2](https://github.com/2020-opportunity-hack/Team-02)
-- ✨ [2020 Team 4](https://github.com/2020-opportunity-hack/Team-04)
-- ✨ [2020 Team 8](https://github.com/2020-opportunity-hack/Team-08)
-- ✨ [2020 Team 12](https://github.com/2020-opportunity-hack/Team-12)
+## Challenges We Faced
+The NPO was unable to provide us with useable or organized files, may of which being empty or erroneous. Along with this, the drive given containing their back-end information and plug-ins could not be completely downloaded and the PHP and WordPress used were outdated. This in turn led to major compatibility issues and made it incredibly difficult to edit and remaster their back-end.
+
+## Continuing The LAA Website Makeover 
+In the future, the LAA's website would need to be hosted on a modern WordPress platform with an integrated, costomized Google Analytics 4 account. This would require the implementation of modern plugins that would support this service. The Google Analytics 4 account could be costomized by the administrator to track whichever services or pages they would like data on. Similarly, based on this data, the NPO would be able to costomize the users that recieve advertisements that encourage more interaction with their site and organization. 
+
